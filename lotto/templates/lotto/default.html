@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+    <head>
+        <title>My Little Lotto</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="//fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/lotto.css' %}">
+    </head>
+
+    <body>
+        <div class="page-header">
+            <h1>
+                Selected Lotto Numbers
+                <a href="{% url 'new_lotto' %}">
+                    <sapn class="glyphicon glyphicon-plus btn btn-default"></sapn>
+                </a>
+            </h1>
+        </div>
+
+        <div class="container lotto">
+            {% for lotto in lottos %}
+                <!--urls.py의 name='detail'과 lottokey에 해당-->
+                <h2>
+                    <a href="{% url 'detail' lottokey=lotto.pk %}">{{lotto.text}}</a>
+                </h2>
+                <p>{{ lotto.update_date }}</p>
+                <p>{{ lotto.lottos | linebreaksbr }}</p> <!-- linebreaksbr : \n을 기준으로하여 자동 줄바꿈 (\n -> <br>)-->
+            {% endfor %}
+        </div>
+        
+        <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> -->
+    </body>
+</html>
