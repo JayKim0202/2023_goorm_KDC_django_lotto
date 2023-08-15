@@ -22,11 +22,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure--*52l(xwhgimg@@bee#@*aiftoj13fuc6l94+4i)iegvpoeg9l'
+# 배포 시 secret key 재생성
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+# 배포 시 False로 수정
 
 ALLOWED_HOSTS = []
+# 배포 시 도메인 설정
 
 
 # Application definition
